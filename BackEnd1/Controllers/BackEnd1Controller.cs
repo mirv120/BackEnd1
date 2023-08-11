@@ -14,4 +14,15 @@ public class BackEnd1Controller : ControllerBase
         Thread.Sleep(500);  //arbitrary sleep per requirements
         return BackEnd1Result;
     }
+
+    [HttpPost]
+    public ActionResult WriteBackEndData(int valueToPost)
+    {
+        Thread.Sleep(500); //arbitrary sleep per requirements
+        if (valueToPost == BackEnd1Result)
+        {
+            return Ok();
+        }
+        return BadRequest("Posted value did not match");
+    }
 }
